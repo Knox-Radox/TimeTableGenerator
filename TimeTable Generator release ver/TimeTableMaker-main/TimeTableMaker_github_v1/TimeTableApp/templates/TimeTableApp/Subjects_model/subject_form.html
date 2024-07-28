@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+  <h1>Add Subject to your Subject List</h1>
+  <form class="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <br>
+    <input class="btn btn-primary" type="submit" name="" value="Add">
+  </form>
+
+{% endblock %}

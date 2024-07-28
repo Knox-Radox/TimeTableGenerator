@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+  <h1>Subjects Available</h1>
+  <ul>
+    {% for subject in subjects %}
+    <li><h4><a href="{{subject.id}}/subjects_detail">{{subject}}</a></h4></li>
+    {% endfor %}
+  </ul>
+
+<a class="btn btn-primary" href="{% url 'TimeTableApp:create_subject' %}">Add a subject</a>
+{% endblock %}

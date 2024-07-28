@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+<h1>Update TimeTable</h1>
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input class="btn btn-warning" type="submit" name="" value="Update">
+</form>
+
+
+{% endblock %}

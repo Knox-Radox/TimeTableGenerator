@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+<br>
+<br>
+<div class="container">
+  <h1>List of Teachers</h1>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <th scope="col">S.NO</th>
+      <th scope="col">Teachers</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Teaches for Grade</th>
+    </thead>
+    {% for teacher in teachers %}
+    <tr>
+      <th class="serial_number" scope="row"></th>
+      <td><a href="{{teacher.id}}/teacher_detail/">{{teacher.name}}</a></td>
+      <td>{{teacher.subject}}</td>
+      <td>{{teacher.teaches_for_class}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<a class="btn btn-primary" href="{% url 'TimeTableApp:create_teacher' %}">Create a new Teacher Profile</a>
+
+</div>
+
+  <script type="text/javascript">
+    var s_no = 1
+    for (i=0;i < (document.getElementsByClassName('serial_number').length);i++) {
+        document.getElementsByClassName('serial_number')[i].textContent = s_no;
+        s_no+=1;
+    }
+  </script>
+
+{% endblock %}

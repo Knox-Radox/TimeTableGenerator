@@ -1,0 +1,920 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+<h1>Create Time table</h1>
+<form class=""  method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  <!-- {% for fields in form %}
+   {{fields.name}} {{fields}}
+   <br>
+  {% endfor %} -->
+  <br>
+  <input class="btn btn-primary" type="submit" name="" value="Finalize">
+
+</form>
+
+<script type="text/javascript">
+/** if you remove the default '---' option of the ForeignKey you have to change i=0 in Limit_Teacher_Choices_Based_On_Grade_v1 function
+ and remove selected_index != 0 in Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill function
+
+
+ */
+// Works only one time
+// function Limit_Teacher_Choices_Based_On_Grade(){
+//   var standard = document.getElementById('id_standard').value
+//   for (i=1; i < document.getElementById('id_mon_1').options.length; i++) {
+//     if (document.getElementById('id_mon_1').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_mon_1').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_mon_1').options[i].textContent.indexOf('@-')
+//       var master_text = document.getElementById('id_mon_1').options[i].textContent;
+//       document.getElementById('id_mon_1').options[i].textContent= master_text.substr(0,stop_index)
+//
+//     }
+//       }
+//
+//   for (i=1; i < document.getElementById('id_mon_2').options.length; i++) {
+//     if (document.getElementById('id_mon_2').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_mon_2').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_mon_2').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_mon_2').options[i].textContent=document.getElementById('id_mon_2').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_mon_3').options.length; i++) {
+//     if (document.getElementById('id_mon_3').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_mon_3').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_mon_3').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_mon_3').options[i].textContent=document.getElementById('id_mon_3').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_mon_4').options.length; i++) {
+//     if (document.getElementById('id_mon_4').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_mon_4').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_mon_4').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_mon_4').options[i].textContent=document.getElementById('id_mon_4').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_mon_5').options.length; i++) {
+//     if (document.getElementById('id_mon_5').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_mon_5').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_mon_5').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_mon_5').options[i].textContent=document.getElementById('id_mon_5').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//
+//   for (i=1; i < document.getElementById('id_tue_1').options.length; i++) {
+//     if (document.getElementById('id_tue_1').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_tue_1').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_tue_1').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_tue_1').options[i].textContent=document.getElementById('id_tue_1').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//       }
+//
+//   for (i=1; i < document.getElementById('id_tue_2').options.length; i++) {
+//     if (document.getElementById('id_tue_2').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_tue_2').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_tue_2').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_tue_2').options[i].textContent=document.getElementById('id_tue_2').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_tue_3').options.length; i++) {
+//     if (document.getElementById('id_tue_3').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_tue_3').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_tue_3').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_tue_3').options[i].textContent=document.getElementById('id_tue_3').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_tue_4').options.length; i++) {
+//     if (document.getElementById('id_tue_4').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_tue_4').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_tue_4').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_tue_4').options[i].textContent=document.getElementById('id_tue_4').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_tue_5').options.length; i++) {
+//     if (document.getElementById('id_tue_5').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_tue_5').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_tue_5').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_tue_5').options[i].textContent=document.getElementById('id_tue_5').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//
+//   for (i=1; i < document.getElementById('id_wednes_1').options.length; i++) {
+//     if (document.getElementById('id_wednes_1').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_wednes_1').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_wednes_1').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_wednes_1').options[i].textContent=document.getElementById('id_wednes_1').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//       }
+//
+//   for (i=1; i < document.getElementById('id_wednes_2').options.length; i++) {
+//     if (document.getElementById('id_wednes_2').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_wednes_2').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_wednes_2').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_wednes_2').options[i].textContent=document.getElementById('id_wednes_2').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_wednes_3').options.length; i++) {
+//     if (document.getElementById('id_wednes_3').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_wednes_3').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_wednes_3').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_wednes_3').options[i].textContent=document.getElementById('id_wednes_3').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_wednes_4').options.length; i++) {
+//     if (document.getElementById('id_wednes_4').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_wednes_4').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_wednes_4').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_wednes_4').options[i].textContent=document.getElementById('id_wednes_4').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_wednes_5').options.length; i++) {
+//     if (document.getElementById('id_wednes_5').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_wednes_5').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_wednes_5').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_wednes_5').options[i].textContent=document.getElementById('id_wednes_5').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//
+//   for (i=1; i < document.getElementById('id_thurs_1').options.length; i++) {
+//     if (document.getElementById('id_thurs_1').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_thurs_1').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_thurs_1').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_thurs_1').options[i].textContent=document.getElementById('id_thurs_1').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//       }
+//
+//   for (i=1; i < document.getElementById('id_thurs_2').options.length; i++) {
+//     if (document.getElementById('id_thurs_2').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_thurs_2').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_thurs_2').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_thurs_2').options[i].textContent=document.getElementById('id_thurs_2').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_thurs_3').options.length; i++) {
+//     if (document.getElementById('id_thurs_3').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_thurs_3').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_thurs_3').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_thurs_3').options[i].textContent=document.getElementById('id_thurs_3').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_thurs_4').options.length; i++) {
+//     if (document.getElementById('id_thurs_4').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_thurs_4').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_thurs_4').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_thurs_4').options[i].textContent=document.getElementById('id_thurs_4').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_thurs_5').options.length; i++) {
+//     if (document.getElementById('id_thurs_5').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_thurs_5').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_thurs_5').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_thurs_5').options[i].textContent=document.getElementById('id_thurs_5').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//
+//   for (i=1; i < document.getElementById('id_fri_1').options.length; i++) {
+//     if (document.getElementById('id_fri_1').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_fri_1').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_fri_1').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_fri_1').options[i].textContent=document.getElementById('id_fri_1').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//       }
+//
+//   for (i=1; i < document.getElementById('id_fri_2').options.length; i++) {
+//     if (document.getElementById('id_fri_2').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_fri_2').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_fri_2').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_fri_2').options[i].textContent=document.getElementById('id_fri_2').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_fri_3').options.length; i++) {
+//     if (document.getElementById('id_fri_3').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_fri_3').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_fri_3').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_fri_3').options[i].textContent=document.getElementById('id_fri_3').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_fri_4').options.length; i++) {
+//     if (document.getElementById('id_fri_4').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_fri_4').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_fri_4').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_fri_4').options[i].textContent=document.getElementById('id_fri_4').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//   for (i=1; i < document.getElementById('id_fri_5').options.length; i++) {
+//     if (document.getElementById('id_fri_5').options[i].textContent.includes(standard) === false){
+//         document.getElementById('id_fri_5').options[i].remove()
+//     }
+//     else{
+//       var stop_index = document.getElementById('id_fri_5').options[i].textContent.indexOf('@-')
+//       document.getElementById('id_fri_5').options[i].textContent=document.getElementById('id_fri_5').options[i].textContent.substr(0,stop_index);
+//
+//     }
+//   }
+//
+//
+//
+//
+//
+// }
+// document.getElementById('id_standard').onchange = Limit_Teacher_Choices_Based_On_Grade
+
+function Limit_Teacher_Choices_Based_On_Grade_v1(){
+  var standard = document.getElementById('id_standard').value
+  // monday
+  for (i=1; i < document.getElementById('id_mon_1').options.length; i++) {
+    if (document.getElementById('id_mon_1').options[i].textContent.includes(standard) === false){
+        document.getElementById('id_mon_1').options[i].hidden = true
+    }
+    else{
+        document.getElementById('id_mon_1').options[i].hidden = false
+
+
+    }
+      }
+    for (i=1; i < document.getElementById('id_mon_2').options.length; i++) {
+      if (document.getElementById('id_mon_2').options[i].textContent.includes(standard) === false){
+          document.getElementById('id_mon_2').options[i].hidden = true
+      }
+      else{
+          document.getElementById('id_mon_2').options[i].hidden = false
+
+
+      }
+        }
+      for (i=1; i < document.getElementById('id_mon_3').options.length; i++) {
+        if (document.getElementById('id_mon_3').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_mon_3').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_mon_3').options[i].hidden = false
+
+
+        }
+          }
+      for (i=1; i < document.getElementById('id_mon_4').options.length; i++) {
+        if (document.getElementById('id_mon_4').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_mon_4').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_mon_4').options[i].hidden = false
+
+
+        }
+          }
+        for (i=1; i < document.getElementById('id_mon_5').options.length; i++) {
+          if (document.getElementById('id_mon_5').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_mon_5').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_mon_5').options[i].hidden = false
+
+
+          }
+            }
+// tuesday
+for (i=1; i < document.getElementById('id_tue_1').options.length; i++) {
+    if (document.getElementById('id_tue_1').options[i].textContent.includes(standard) === false){
+        document.getElementById('id_tue_1').options[i].hidden = true
+    }
+    else{
+        document.getElementById('id_tue_1').options[i].hidden = false
+
+
+    }
+      }
+    for (i=1; i < document.getElementById('id_tue_2').options.length; i++) {
+      if (document.getElementById('id_tue_2').options[i].textContent.includes(standard) === false){
+          document.getElementById('id_tue_2').options[i].hidden = true
+      }
+      else{
+          document.getElementById('id_tue_2').options[i].hidden = false
+
+
+      }
+        }
+      for (i=1; i < document.getElementById('id_tue_3').options.length; i++) {
+        if (document.getElementById('id_tue_3').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_tue_3').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_tue_3').options[i].hidden = false
+
+
+        }
+          }
+      for (i=1; i < document.getElementById('id_tue_4').options.length; i++) {
+        if (document.getElementById('id_tue_4').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_tue_4').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_tue_4').options[i].hidden = false
+
+
+        }
+          }
+        for (i=1; i < document.getElementById('id_tue_5').options.length; i++) {
+          if (document.getElementById('id_tue_5').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_tue_5').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_tue_5').options[i].hidden = false
+
+
+          }
+            }
+// wednesdy
+for (i=1; i < document.getElementById('id_wednes_1').options.length; i++) {
+    if (document.getElementById('id_wednes_1').options[i].textContent.includes(standard) === false){
+        document.getElementById('id_wednes_1').options[i].hidden = true
+    }
+    else{
+        document.getElementById('id_wednes_1').options[i].hidden = false
+
+
+    }
+      }
+    for (i=1; i < document.getElementById('id_wednes_2').options.length; i++) {
+      if (document.getElementById('id_wednes_2').options[i].textContent.includes(standard) === false){
+          document.getElementById('id_wednes_2').options[i].hidden = true
+      }
+      else{
+          document.getElementById('id_wednes_2').options[i].hidden = false
+
+
+      }
+        }
+      for (i=1; i < document.getElementById('id_wednes_3').options.length; i++) {
+        if (document.getElementById('id_wednes_3').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_wednes_3').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_wednes_3').options[i].hidden = false
+
+
+        }
+          }
+      for (i=1; i < document.getElementById('id_wednes_4').options.length; i++) {
+        if (document.getElementById('id_wednes_4').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_wednes_4').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_wednes_4').options[i].hidden = false
+
+
+        }
+          }
+        for (i=1; i < document.getElementById('id_wednes_5').options.length; i++) {
+          if (document.getElementById('id_wednes_5').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_wednes_5').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_wednes_5').options[i].hidden = false
+
+
+          }
+            }
+  // Thursday
+  for (i=1; i < document.getElementById('id_thurs_1').options.length; i++) {
+      if (document.getElementById('id_thurs_1').options[i].textContent.includes(standard) === false){
+          document.getElementById('id_thurs_1').options[i].hidden = true
+      }
+      else{
+          document.getElementById('id_thurs_1').options[i].hidden = false
+
+
+      }
+        }
+      for (i=1; i < document.getElementById('id_thurs_2').options.length; i++) {
+        if (document.getElementById('id_thurs_2').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_thurs_2').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_thurs_2').options[i].hidden = false
+
+
+        }
+          }
+        for (i=1; i < document.getElementById('id_thurs_3').options.length; i++) {
+          if (document.getElementById('id_thurs_3').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_thurs_3').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_thurs_3').options[i].hidden = false
+
+
+          }
+            }
+        for (i=1; i < document.getElementById('id_thurs_4').options.length; i++) {
+          if (document.getElementById('id_thurs_4').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_thurs_4').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_thurs_4').options[i].hidden = false
+
+
+          }
+            }
+          for (i=1; i < document.getElementById('id_thurs_5').options.length; i++) {
+            if (document.getElementById('id_thurs_5').options[i].textContent.includes(standard) === false){
+                document.getElementById('id_thurs_5').options[i].hidden = true
+            }
+            else{
+                document.getElementById('id_thurs_5').options[i].hidden = false
+
+
+            }
+              }
+// Friday
+for (i=1; i < document.getElementById('id_fri_1').options.length; i++) {
+    if (document.getElementById('id_fri_1').options[i].textContent.includes(standard) === false){
+        document.getElementById('id_fri_1').options[i].hidden = true
+    }
+    else{
+        document.getElementById('id_fri_1').options[i].hidden = false
+
+
+    }
+      }
+    for (i=1; i < document.getElementById('id_fri_2').options.length; i++) {
+      if (document.getElementById('id_fri_2').options[i].textContent.includes(standard) === false){
+          document.getElementById('id_fri_2').options[i].hidden = true
+      }
+      else{
+          document.getElementById('id_fri_2').options[i].hidden = false
+
+
+      }
+        }
+      for (i=1; i < document.getElementById('id_fri_3').options.length; i++) {
+        if (document.getElementById('id_fri_3').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_fri_3').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_fri_3').options[i].hidden = false
+
+
+        }
+          }
+      for (i=1; i < document.getElementById('id_fri_4').options.length; i++) {
+        if (document.getElementById('id_fri_4').options[i].textContent.includes(standard) === false){
+            document.getElementById('id_fri_4').options[i].hidden = true
+        }
+        else{
+            document.getElementById('id_fri_4').options[i].hidden = false
+
+
+        }
+          }
+        for (i=1; i < document.getElementById('id_fri_5').options.length; i++) {
+          if (document.getElementById('id_fri_5').options[i].textContent.includes(standard) === false){
+              document.getElementById('id_fri_5').options[i].hidden = true
+          }
+          else{
+              document.getElementById('id_fri_5').options[i].hidden = false
+
+
+          }
+            }
+
+}
+document.getElementById('id_standard').onchange = Limit_Teacher_Choices_Based_On_Grade_v1
+
+function Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill(){
+  var standard = document.getElementById('id_standard').value
+
+// monday
+  var selected_index_mon_1 = document.getElementById('id_mon_1').options.selectedIndex
+  if (selected_index_mon_1 != 0){
+    if (document.getElementById('id_mon_1').options[selected_index_mon_1].textContent.includes(standard) === false){
+        document.getElementById('id_mon_1').style.color = '#fc0341';
+        document.getElementById('id_mon_1').style.backgroundColor = '#f2c2ce';
+    }
+    else{
+        document.getElementById('id_mon_1').style.backgroundColor = "white";
+        document.getElementById('id_mon_1').style.color = 'black';
+    }
+  }
+
+  var selected_index_mon_2 = document.getElementById('id_mon_2').options.selectedIndex
+  if (selected_index_mon_2 != 0){
+    if (document.getElementById('id_mon_2').options[selected_index_mon_2].textContent.includes(standard) === false){
+        document.getElementById('id_mon_2').style.color = '#fc0341';
+        document.getElementById('id_mon_2').style.backgroundColor = '#f2c2ce';
+    }
+    else{
+        document.getElementById('id_mon_2').style.backgroundColor = "white";
+        document.getElementById('id_mon_2').style.color = 'black';
+    }
+  }
+
+  var selected_index_mon_3 = document.getElementById('id_mon_3').options.selectedIndex
+  if (selected_index_mon_3 != 0){
+    if (document.getElementById('id_mon_3').options[selected_index_mon_3].textContent.includes(standard) === false){
+        document.getElementById('id_mon_3').style.color = '#fc0341';
+        document.getElementById('id_mon_3').style.backgroundColor = '#f2c2ce';
+    }
+    else{
+        document.getElementById('id_mon_3').style.backgroundColor = "white";
+        document.getElementById('id_mon_3').style.color = 'black';
+    }
+  }
+
+  var selected_index_mon_4 = document.getElementById('id_mon_4').options.selectedIndex
+  if (selected_index_mon_4 != 0){
+    if (document.getElementById('id_mon_4').options[selected_index_mon_4].textContent.includes(standard) === false){
+        document.getElementById('id_mon_4').style.color = '#fc0341';
+        document.getElementById('id_mon_4').style.backgroundColor = '#f2c2ce';
+    }
+    else{
+        document.getElementById('id_mon_4').style.backgroundColor = "white";
+        document.getElementById('id_mon_4').style.color = 'black';
+    }
+  }
+
+  var selected_index_mon_5 = document.getElementById('id_mon_5').options.selectedIndex
+  if (selected_index_mon_5 != 0){
+    if (document.getElementById('id_mon_5').options[selected_index_mon_5].textContent.includes(standard) === false){
+        document.getElementById('id_mon_5').style.color = '#fc0341';
+        document.getElementById('id_mon_5').style.backgroundColor = '#f2c2ce';
+    }
+    else{
+        document.getElementById('id_mon_5').style.backgroundColor = "white";
+        document.getElementById('id_mon_5').style.color = 'black';
+    }
+  }
+
+  // tuesday
+  var selected_index_tue_1 = document.getElementById('id_tue_1').options.selectedIndex
+if (selected_index_tue_1 != 0){
+  if (document.getElementById('id_tue_1').options[selected_index_tue_1].textContent.includes(standard) === false){
+      document.getElementById('id_tue_1').style.color = '#fc0341';
+      document.getElementById('id_tue_1').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_tue_1').style.backgroundColor = "white";
+      document.getElementById('id_tue_1').style.color = 'black';
+  }
+}
+
+var selected_index_tue_2 = document.getElementById('id_tue_2').options.selectedIndex
+if (selected_index_tue_2 != 0){
+  if (document.getElementById('id_tue_2').options[selected_index_tue_2].textContent.includes(standard) === false){
+      document.getElementById('id_tue_2').style.color = '#fc0341';
+      document.getElementById('id_tue_2').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_tue_2').style.backgroundColor = "white";
+      document.getElementById('id_tue_2').style.color = 'black';
+  }
+}
+
+var selected_index_tue_3 = document.getElementById('id_tue_3').options.selectedIndex
+if (selected_index_tue_3 != 0){
+  if (document.getElementById('id_tue_3').options[selected_index_tue_3].textContent.includes(standard) === false){
+      document.getElementById('id_tue_3').style.color = '#fc0341';
+      document.getElementById('id_tue_3').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_tue_3').style.backgroundColor = "white";
+      document.getElementById('id_tue_3').style.color = 'black';
+  }
+}
+
+var selected_index_tue_4 = document.getElementById('id_tue_4').options.selectedIndex
+if (selected_index_tue_4 != 0){
+  if (document.getElementById('id_tue_4').options[selected_index_tue_4].textContent.includes(standard) === false){
+      document.getElementById('id_tue_4').style.color = '#fc0341';
+      document.getElementById('id_tue_4').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_tue_4').style.backgroundColor = "white";
+      document.getElementById('id_tue_4').style.color = 'black';
+  }
+}
+
+var selected_index_tue_5 = document.getElementById('id_tue_5').options.selectedIndex
+if (selected_index_tue_5 != 0){
+  if (document.getElementById('id_tue_5').options[selected_index_tue_5].textContent.includes(standard) === false){
+      document.getElementById('id_tue_5').style.color = '#fc0341';
+      document.getElementById('id_tue_5').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_tue_5').style.backgroundColor = "white";
+      document.getElementById('id_tue_5').style.color = 'black';
+  }
+}
+
+// wednesday
+var selected_index_wednes_1 = document.getElementById('id_wednes_1').options.selectedIndex
+if (selected_index_wednes_1 != 0){
+  if (document.getElementById('id_wednes_1').options[selected_index_wednes_1].textContent.includes(standard) === false){
+      document.getElementById('id_wednes_1').style.color = '#fc0341';
+      document.getElementById('id_wednes_1').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_wednes_1').style.backgroundColor = "white";
+      document.getElementById('id_wednes_1').style.color = 'black';
+  }
+}
+
+var selected_index_wednes_2 = document.getElementById('id_wednes_2').options.selectedIndex
+if (selected_index_wednes_2 != 0){
+  if (document.getElementById('id_wednes_2').options[selected_index_wednes_2].textContent.includes(standard) === false){
+      document.getElementById('id_wednes_2').style.color = '#fc0341';
+      document.getElementById('id_wednes_2').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_wednes_2').style.backgroundColor = "white";
+      document.getElementById('id_wednes_2').style.color = 'black';
+  }
+}
+
+var selected_index_wednes_3 = document.getElementById('id_wednes_3').options.selectedIndex
+if (selected_index_wednes_3 != 0){
+  if (document.getElementById('id_wednes_3').options[selected_index_wednes_3].textContent.includes(standard) === false){
+      document.getElementById('id_wednes_3').style.color = '#fc0341';
+      document.getElementById('id_wednes_3').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_wednes_3').style.backgroundColor = "white";
+      document.getElementById('id_wednes_3').style.color = 'black';
+  }
+}
+
+var selected_index_wednes_4 = document.getElementById('id_wednes_4').options.selectedIndex
+if (selected_index_wednes_4 != 0){
+  if (document.getElementById('id_wednes_4').options[selected_index_wednes_4].textContent.includes(standard) === false){
+      document.getElementById('id_wednes_4').style.color = '#fc0341';
+      document.getElementById('id_wednes_4').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_wednes_4').style.backgroundColor = "white";
+      document.getElementById('id_wednes_4').style.color = 'black';
+  }
+}
+
+var selected_index_wednes_5 = document.getElementById('id_wednes_5').options.selectedIndex
+if (selected_index_wednes_5 != 0){
+  if (document.getElementById('id_wednes_5').options[selected_index_wednes_5].textContent.includes(standard) === false){
+      document.getElementById('id_wednes_5').style.color = '#fc0341';
+      document.getElementById('id_wednes_5').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_wednes_5').style.backgroundColor = "white";
+      document.getElementById('id_wednes_5').style.color = 'black';
+  }
+}
+
+// thursday
+var selected_index_thurs_1 = document.getElementById('id_thurs_1').options.selectedIndex
+if (selected_index_thurs_1 != 0){
+  if (document.getElementById('id_thurs_1').options[selected_index_thurs_1].textContent.includes(standard) === false){
+      document.getElementById('id_thurs_1').style.color = '#fc0341';
+      document.getElementById('id_thurs_1').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_thurs_1').style.backgroundColor = "white";
+      document.getElementById('id_thurs_1').style.color = 'black';
+  }
+}
+
+var selected_index_thurs_2 = document.getElementById('id_thurs_2').options.selectedIndex
+if (selected_index_thurs_2 != 0){
+  if (document.getElementById('id_thurs_2').options[selected_index_thurs_2].textContent.includes(standard) === false){
+      document.getElementById('id_thurs_2').style.color = '#fc0341';
+      document.getElementById('id_thurs_2').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_thurs_2').style.backgroundColor = "white";
+      document.getElementById('id_thurs_2').style.color = 'black';
+  }
+}
+
+var selected_index_thurs_3 = document.getElementById('id_thurs_3').options.selectedIndex
+if (selected_index_thurs_3 != 0){
+  if (document.getElementById('id_thurs_3').options[selected_index_thurs_3].textContent.includes(standard) === false){
+      document.getElementById('id_thurs_3').style.color = '#fc0341';
+      document.getElementById('id_thurs_3').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_thurs_3').style.backgroundColor = "white";
+      document.getElementById('id_thurs_3').style.color = 'black';
+  }
+}
+
+var selected_index_thurs_4 = document.getElementById('id_thurs_4').options.selectedIndex
+if (selected_index_thurs_4 != 0){
+  if (document.getElementById('id_thurs_4').options[selected_index_thurs_4].textContent.includes(standard) === false){
+      document.getElementById('id_thurs_4').style.color = '#fc0341';
+      document.getElementById('id_thurs_4').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_thurs_4').style.backgroundColor = "white";
+      document.getElementById('id_thurs_4').style.color = 'black';
+  }
+}
+
+var selected_index_thurs_5 = document.getElementById('id_thurs_5').options.selectedIndex
+if (selected_index_thurs_5 != 0){
+  if (document.getElementById('id_thurs_5').options[selected_index_thurs_5].textContent.includes(standard) === false){
+      document.getElementById('id_thurs_5').style.color = '#fc0341';
+      document.getElementById('id_thurs_5').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_thurs_5').style.backgroundColor = "white";
+      document.getElementById('id_thurs_5').style.color = 'black';
+  }
+}
+
+// friday
+var selected_index_fri_1 = document.getElementById('id_fri_1').options.selectedIndex
+if (selected_index_fri_1 != 0){
+  if (document.getElementById('id_fri_1').options[selected_index_fri_1].textContent.includes(standard) === false){
+      document.getElementById('id_fri_1').style.color = '#fc0341';
+      document.getElementById('id_fri_1').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_fri_1').style.backgroundColor = "white";
+      document.getElementById('id_fri_1').style.color = 'black';
+  }
+}
+
+var selected_index_fri_2 = document.getElementById('id_fri_2').options.selectedIndex
+if (selected_index_fri_2 != 0){
+  if (document.getElementById('id_fri_2').options[selected_index_fri_2].textContent.includes(standard) === false){
+      document.getElementById('id_fri_2').style.color = '#fc0341';
+      document.getElementById('id_fri_2').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_fri_2').style.backgroundColor = "white";
+      document.getElementById('id_fri_2').style.color = 'black';
+  }
+}
+
+var selected_index_fri_3 = document.getElementById('id_fri_3').options.selectedIndex
+if (selected_index_fri_3 != 0){
+  if (document.getElementById('id_fri_3').options[selected_index_fri_3].textContent.includes(standard) === false){
+      document.getElementById('id_fri_3').style.color = '#fc0341';
+      document.getElementById('id_fri_3').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_fri_3').style.backgroundColor = "white";
+      document.getElementById('id_fri_3').style.color = 'black';
+  }
+}
+
+var selected_index_fri_4 = document.getElementById('id_fri_4').options.selectedIndex
+if (selected_index_fri_4 != 0){
+  if (document.getElementById('id_fri_4').options[selected_index_fri_4].textContent.includes(standard) === false){
+      document.getElementById('id_fri_4').style.color = '#fc0341';
+      document.getElementById('id_fri_4').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_fri_4').style.backgroundColor = "white";
+      document.getElementById('id_fri_4').style.color = 'black';
+  }
+}
+
+var selected_index_fri_5 = document.getElementById('id_fri_5').options.selectedIndex
+if (selected_index_fri_5 != 0){
+  if (document.getElementById('id_fri_5').options[selected_index_fri_5].textContent.includes(standard) === false){
+      document.getElementById('id_fri_5').style.color = '#fc0341';
+      document.getElementById('id_fri_5').style.backgroundColor = '#f2c2ce';
+  }
+  else{
+      document.getElementById('id_fri_5').style.backgroundColor = "white";
+      document.getElementById('id_fri_5').style.color = 'black';
+  }
+}
+
+}
+
+
+
+document.getElementById('id_mon_1').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_mon_2').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_mon_3').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_mon_4').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_mon_5').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+document.getElementById('id_tue_1').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_tue_2').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_tue_3').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_tue_4').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_tue_5').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+document.getElementById('id_wednes_1').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_wednes_2').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_wednes_3').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_wednes_4').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_wednes_5').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+document.getElementById('id_thurs_1').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_thurs_2').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_thurs_3').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_thurs_4').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_thurs_5').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+document.getElementById('id_fri_1').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_fri_2').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_fri_3').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_fri_4').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+document.getElementById('id_fri_5').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+document.getElementById('id_standard').onclick = Check_for_no_Choice_Error_On_Changing_Grade_After_Form_Fill
+
+</script>
+{% endblock %}

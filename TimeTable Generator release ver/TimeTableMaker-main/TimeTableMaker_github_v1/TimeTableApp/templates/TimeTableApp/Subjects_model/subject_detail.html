@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+    <h1>Subject Details </h1>
+
+    <h3>List of {{subject.subject_name}} Teachers</h3>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th scope="col">S.NO </th>
+        <th scope="col">Teacher name</th>
+        <th scope="col">Teaches for Grades</th>
+      </thead>
+    {% for i in subject.teacher_subject.all %}
+      <tr>
+        <th class="serial_number" scope="row">x</th>
+        <td>{{i.name}}</td>
+        <td>{{i.teaches_for_class}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+<a class="btn btn-danger" href="{% url 'TimeTableApp:delete_subject' pk=subject.pk %}">Delete Subject</a>
+
+  <!-- javascript code for autogenerating serial numbers -->
+  <script type="text/javascript">
+    var s_no = 1
+    for (i=0;i < (document.getElementsByClassName('serial_number').length);i++) {
+        document.getElementsByClassName('serial_number')[i].textContent = s_no;
+        s_no+=1;
+    }
+  </script>
+{% endblock %}

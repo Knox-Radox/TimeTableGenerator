@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block head_block %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+thead{
+  background-color: grey;
+  color: white;
+}
+
+td, th {
+  border: 2px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #FFFFFF;
+}
+</style>
+{% endblock %}
+
+{% block body_block %}
+
+  <h1>{{TimeTable}}</h1>
+  <table>
+    <thead>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+    </thead>
+    <tr>
+      <td>{{TimeTable.mon_1}}</td>
+      <td>{{TimeTable.tue_1}}</td>
+      <td>{{TimeTable.wednes_1}}</td>
+      <td>{{TimeTable.thurs_1}}</td>
+      <td>{{TimeTable.fri_1}}</td>
+    </tr>
+    <tr>
+      <td>{{TimeTable.mon_2}}</td>
+      <td>{{TimeTable.tue_2}}</td>
+      <td>{{TimeTable.wednes_2}}</td>
+      <td>{{TimeTable.thurs_2}}</td>
+      <td>{{TimeTable.fri_2}}</td>
+    </tr>
+    <tr>
+      <td>{{TimeTable.mon_3}}</td>
+      <td>{{TimeTable.tue_3}}</td>
+      <td>{{TimeTable.wednes_3}}</td>
+      <td>{{TimeTable.thurs_3}}</td>
+      <td>{{TimeTable.fri_3}}</td>
+    </tr>
+    <tr>
+      <td>{{TimeTable.mon_4}}</td>
+      <td>{{TimeTable.tue_4}}</td>
+      <td>{{TimeTable.wednes_4}}</td>
+      <td>{{TimeTable.thurs_4}}</td>
+      <td>{{TimeTable.fri_4}}</td>
+    </tr>
+    <tr>
+      <td>{{TimeTable.mon_5}}</td>
+      <td>{{TimeTable.tue_5}}</td>
+      <td>{{TimeTable.wednes_5}}</td>
+      <td>{{TimeTable.thurs_5}}</td>
+      <td>{{TimeTable.fri_5}}</td>
+    </tr>
+  </table>
+<br>
+<a class="btn btn-warning" href="{% url 'TimeTableApp:update_timetable' pk=TimeTable.pk %}">Update TimeTable</a>
+<a class="btn btn-danger" href="{% url 'TimeTableApp:delete_timetable' pk=TimeTable.pk %}">Delete TimeTable</a>
+
+{% endblock %}

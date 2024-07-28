@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+  <h1>TimeTable</h1>
+  <ul>
+    {% for timetable in TimeTableList %}
+    <li><h4><a href="{{timetable.id}}/timetable_detail/">{{timetable}}</a></h4></li>
+    {% endfor %}
+  </ul>
+
+  <a class="btn btn-primary" href="{% url 'TimeTableApp:create_time_table' %}">Create a New TimeTable</a>
+  
+{% endblock %}

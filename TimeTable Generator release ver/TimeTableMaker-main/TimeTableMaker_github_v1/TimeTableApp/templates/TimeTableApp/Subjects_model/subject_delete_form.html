@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+  <h1>Are you sure that you want to delete '{{subjects.subject_name}}'  subject ?</h1>
+  <h3>Deleting this subject may lead to deletion of all teacher profiles and timetable having reference to this subject</h3>
+  <form class="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form  %}
+    <input class="btn btn-danger" type="submit" name="" value="Delete">
+    <a class="btn btn-primary" href="{% url 'TimeTableApp:subject_detail' pk=subjects.pk %}">Cancel</a>
+
+  </form>
+{% endblock %}

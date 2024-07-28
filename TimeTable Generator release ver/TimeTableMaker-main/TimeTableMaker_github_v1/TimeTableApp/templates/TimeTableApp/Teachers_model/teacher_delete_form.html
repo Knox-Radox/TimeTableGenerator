@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+<div class="container">
+  <h1>Delete {{teachers.name}} profile ?</h1>
+  <h5>Name: {{teachers.name}}</h5>
+  <h5>Subject: {{teachers.subject}}</h5>
+  <h5>Teaches for grades: {{teachers.teaches_for_class}}</h5>
+  <form  method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-danger" type="submit" class="btn btn-danger" value="Delete">
+    <a class="btn btn-primary" href="{% url 'TimeTableApp:teacher_detail' pk=teachers.pk %}">Cancel</a>
+  </form>
+</div>
+{% endblock %}

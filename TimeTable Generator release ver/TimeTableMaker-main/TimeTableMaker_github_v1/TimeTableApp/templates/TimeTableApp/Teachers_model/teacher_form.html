@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body_block %}
+
+  <h1>Create a Teacher Profile</h1>
+  <form class="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" class="btn btn-primary" value="Create">
+  </form>
+
+{% endblock %}

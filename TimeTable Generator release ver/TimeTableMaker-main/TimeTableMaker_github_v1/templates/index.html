@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_block %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to TimeTableMaker</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #1E90FF;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #1E90FF;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #1874CD;
+            transform: scale(1.05);
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin: 20px;
+            color: #1E90FF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to TimeTableMaker</h1>
+        <p>Create Your Time Tables with Ease and Efficiency</p>
+        <a href="#get-started" class="button">Get Started</a>
+    </header>
+
+    <section class="container">
+        <h2>Key Features</h2>
+        <div class="feature-icon">📅</div>
+        <p>Effortlessly create and manage your study schedule.</p>
+        <div class="feature-icon">🧑‍🏫</div>
+        <p>Explore teacher profiles and qualifications.</p>
+        <div class="feature-icon">📚</div>
+        <p>Plan your subjects and courses efficiently.</p>
+    </section>
+
+    <section class="container" id="get-started">
+        <h2>Get Started Today!</h2>
+        <p>Start optimizing your time management now with TimeTableMaker.</p>
+        <a href="http://127.0.0.1:8000/TimeTableMaker/timetable_list/#timetable" class="button">Start Creating</a>
+    </section>
+</body>
+</html>
+
+{% endblock %}
