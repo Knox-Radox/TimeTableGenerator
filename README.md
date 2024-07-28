@@ -11,6 +11,41 @@ The Python Time Table Generator is a web-based application designed using Django
 **Step-3** : configure mysql creds in settings.py to view locally in mysql.
 **Step-4** : python manage.py runserver.
 
+## SQL Tables
+![Screenshot 2024-07-28 200623](https://github.com/user-attachments/assets/acab15e8-18cb-48ec-8f08-650a1116c388)
+![Screenshot 2024-07-28 200513](https://github.com/user-attachments/assets/74595ed6-251c-481d-8f49-b8e86ba54ab2)
+
+## Working
+![Screenshot 2024-07-28 200952](https://github.com/user-attachments/assets/d8b18c57-fdf6-4a2a-a049-e3f88a04b757)
+
+## Home Page
+![Screenshot 2024-07-28 201145](https://github.com/user-attachments/assets/f6b8b00b-fd82-4b7f-a14d-3c790e4e3684)
+
+## Adding and Deleting Subjects
+![Screenshot 2024-07-28 201252](https://github.com/user-attachments/assets/ae38b14e-a7b5-45a8-b1ce-cff7adca4522)
+
+## Teacher Profile
+![Screenshot 2024-07-28 201339](https://github.com/user-attachments/assets/66695e6e-8b3b-44c3-b17e-1da4722531b5)
+
+## Teachers List
+![Screenshot 2024-07-28 201428](https://github.com/user-attachments/assets/0d85d5f6-550d-4a05-9aef-8102467f3cb0)
+
+## Creating TImeTable
+![Screenshot 2024-07-28 201510](https://github.com/user-attachments/assets/7a2bf106-cee1-4e34-bdcd-45e0e0a3efb2)
+
+## Viewing TimeTable
+![Screenshot 2024-07-28 201611](https://github.com/user-attachments/assets/0cd6389c-0d80-45d5-a30f-c746682e7fde)
+
+## Updating TimeTable
+![Screenshot 2024-07-28 201657](https://github.com/user-attachments/assets/b6c45d91-609a-482e-9f59-8c5f6bf6fb25)
+
+## Redundancy of TimeTable and Subject
+![Screenshot 2024-07-28 201827](https://github.com/user-attachments/assets/c10bef76-99f5-4bea-a89e-aeea1c015452)
+
+## Overlapping of periods by multiple teachers
+![Screenshot 2024-07-28 201945](https://github.com/user-attachments/assets/2ad45fb5-f3f1-452d-a0e8-181cc7e5bddc)
+
+
 ## Key Features
 
 1. **Timetable Generation**:
